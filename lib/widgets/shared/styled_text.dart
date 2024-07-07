@@ -10,7 +10,23 @@ class StyledText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.inter(),
+      style: GoogleFonts.inter(fontSize: 16),
+    );
+  }
+}
+
+class StyledSmallText extends StatelessWidget {
+  const StyledSmallText(this.text, {super.key});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.inter(
+        textStyle: Theme.of(context).textTheme.headlineSmall,
+      ),
     );
   }
 }

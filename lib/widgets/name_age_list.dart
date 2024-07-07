@@ -10,6 +10,7 @@ class NameAgeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const BouncingScrollPhysics(),
       itemCount: people.length,
       itemBuilder: (context, index) {
         return NameAgeItem(person: people[index]);
