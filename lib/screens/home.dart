@@ -1,3 +1,5 @@
+import 'package:age_estimator/models/person.dart';
+import 'package:age_estimator/widgets/name_age_list.dart';
 import 'package:age_estimator/widgets/name_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:age_estimator/widgets/shared/separator.dart';
@@ -13,6 +15,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final TextEditingController nameController = TextEditingController();
   String estimatedAge = '';
+
+  List<Person> mockPeople = [
+    Person(name: "Alice", age: 25),
+    Person(name: "Bob", age: 30),
+    Person(name: "Charlie", age: 22),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +39,15 @@ class _HomeState extends State<Home> {
             const Separator(SizeOption.medium),
             NameInputField(
                 controller: nameController, onSubmitted: _estimateAge),
-            const Separator(SizeOption.small),
             if (estimatedAge.isNotEmpty) ...[
               const Separator(SizeOption.medium),
               Text('Estimated Age: $estimatedAge'),
+              const Separator(SizeOption.medium),
             ],
+            Expanded(
+              // Wrap the NameAgeList in an Expanded widget
+              child: NameAgeList(people: mockPeople),
+            ),
           ],
         ),
       ),

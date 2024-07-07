@@ -1,3 +1,4 @@
+import 'package:age_estimator/theme.dart';
 import 'package:flutter/material.dart';
 
 class NameInputField extends StatelessWidget {
@@ -19,7 +20,7 @@ class NameInputField extends StatelessWidget {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withOpacity(0.2),
                   spreadRadius: 1,
                   blurRadius: 3,
                   offset: const Offset(0, 2),
@@ -44,23 +45,22 @@ class NameInputField extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 8), // Spacing between TextField and Button
+        const SizedBox(width: 8),
         SizedBox(
-          height: 48, // Match the height of TextField's default height
-          child: ElevatedButton(
-            onPressed: onSubmitted,
-            style: ButtonStyle(
-              backgroundColor: WidgetStateProperty.all(
-                Theme.of(context).colorScheme.primary,
-              ),
-              shape: WidgetStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+          height: 48,
+          width: 48,
+          child: IconButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    WidgetStateProperty.all<Color>(AppColors.primaryColor),
+                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
-            ),
-            child: const Icon(Icons.search, color: Colors.white),
-          ),
+              onPressed: onSubmitted,
+              icon: const Icon(Icons.search, color: Colors.white)),
         ),
       ],
     );
