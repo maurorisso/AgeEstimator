@@ -1,6 +1,7 @@
+import 'package:age_estimator/widgets/name_input_field.dart';
+import 'package:flutter/material.dart';
 import 'package:age_estimator/widgets/shared/separator.dart';
 import 'package:age_estimator/widgets/shared/styled_text.dart';
-import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,34 +11,40 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final TextEditingController nameController = TextEditingController();
+  String estimatedAge = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Age Estimator ☕︎',
-          ),
+      appBar: AppBar(
+        title: const Text('Age Estimator ☕︎'),
+      ),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            const StyledMediumText(
+              'Estimate the Age of a Name',
+            ),
+            const Separator(SizeOption.medium),
+            NameInputField(
+                controller: nameController, onSubmitted: _estimateAge),
+            const Separator(SizeOption.small),
+            if (estimatedAge.isNotEmpty) ...[
+              const Separator(SizeOption.medium),
+              Text('Estimated Age: $estimatedAge'),
+            ],
+          ],
         ),
-        body: Container(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: <Widget>[
-                const StyledText(
-                  "At 'Age Estimator', we help you estimate your age based on your name. Enter your name below and we'll do the rest!",
-                ),
-                const Separator(SizeOption.medium),
-                const StyledMediumText('Discover Your Age Through Your Name:'),
-                const Separator(SizeOption.small),
-                const TextField(
-                  keyboardType: TextInputType.name,
-                ),
-                const Separator(SizeOption.small),
-                FilledButton(
-                  onPressed: () {},
-                  child: const Text('Estimate'),
-                ),
-              ],
-            )));
+      ),
+    );
+  }
+
+  void _estimateAge() {
+    setState(() {
+      estimatedAge = 'Approximately 25 years'; // Simulate an API response
+    });
   }
 }
