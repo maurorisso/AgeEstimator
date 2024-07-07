@@ -1,3 +1,5 @@
+import 'package:age_estimator/widgets/shared/separator.dart';
+import 'package:age_estimator/widgets/shared/styled_text.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -14,7 +16,6 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: const Text(
             'Age Estimator ☕︎',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ),
         body: Container(
@@ -22,24 +23,16 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(20),
             child: Column(
               children: <Widget>[
-                const Text(
-                    "At 'Age Estimator', we help you estimate your age based on your name. Enter your name below and we'll do the rest!"),
-                const SizedBox(height: 20),
-                const Text(
-                  'Get started by entering a name below:',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                  ),
+                const StyledText(
+                  "At 'Age Estimator', we help you estimate your age based on your name. Enter your name below and we'll do the rest!",
                 ),
-                const SizedBox(height: 10),
+                const Separator(SizeOption.medium),
+                const StyledMediumText('Discover Your Age Through Your Name:'),
+                const Separator(SizeOption.small),
                 const TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Name',
-                  ),
                   keyboardType: TextInputType.name,
                 ),
-                const SizedBox(height: 20),
+                const Separator(SizeOption.small),
                 FilledButton(
                   onPressed: () {},
                   child: const Text('Estimate'),

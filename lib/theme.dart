@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class AppColors {
   static Color primaryColor = const Color.fromRGBO(73, 91, 253, 1);
@@ -13,15 +14,40 @@ ThemeData appTheme = ThemeData(
     primary: AppColors.primaryColor,
     onPrimary: Colors.white,
   ),
+
+  // Scaffold Background
   scaffoldBackgroundColor: AppColors.background,
+
+  //FilledButton
   filledButtonTheme: FilledButtonThemeData(
       style: ButtonStyle(
           shape: WidgetStateProperty.all(RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10),
   )))),
+
+  // AppBar
   appBarTheme: AppBarTheme(
     backgroundColor: AppColors.background,
     elevation: 0,
+    titleTextStyle: const TextStyle(
+      color: Colors.black,
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+    ),
     shape: const Border(bottom: BorderSide(color: Colors.black12, width: 1)),
   ),
+
+  textTheme: const TextTheme(
+      headlineSmall: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+      ),
+      headlineMedium: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+      ),
+      headlineLarge: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.w600,
+      )),
 );
