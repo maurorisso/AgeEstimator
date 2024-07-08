@@ -34,7 +34,7 @@ class _NameInputFieldState extends State<NameInputField> {
               borderRadius: BorderRadius.circular(8),
             ),
             child: TextField(
-              controller: widget.nameController, 
+              controller: widget.nameController,
               keyboardType: TextInputType.name,
               decoration: const InputDecoration(
                 hintText: "Enter a name here",
@@ -49,7 +49,7 @@ class _NameInputFieldState extends State<NameInputField> {
         SizedBox(
           height: 48,
           width: 48,
-          child: IconButton(
+          child: IconButton( 
             style: ButtonStyle(
               backgroundColor:
                   WidgetStateProperty.all<Color>(AppColors.primaryColor),
