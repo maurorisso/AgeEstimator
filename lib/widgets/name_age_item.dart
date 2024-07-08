@@ -23,28 +23,32 @@ class NameAgeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 3,
-            offset: const Offset(0, 2),
-          ),
-        ],
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: ListTile(
-        leading: Icon(
-          getRandomIcon(),
-          color: AppColors.primaryColor,
+    return GestureDetector(
+      // delete when swiping left
+
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 3,
+              offset: const Offset(0, 2),
+            ),
+          ],
+          borderRadius: BorderRadius.circular(8),
         ),
-        title: Text(person.name, style: const TextStyle(color: Colors.black)),
-        subtitle: Text('Estimated Age: ${person.age}',
-            style: const TextStyle(color: Colors.black54)),
+        child: ListTile(
+          leading: Icon(
+            getRandomIcon(),
+            color: AppColors.primaryColor,
+          ),
+          title: Text(person.name, style: const TextStyle(color: Colors.black)),
+          subtitle: Text('Estimated Age: ${person.age}',
+              style: const TextStyle(color: Colors.black54)),
+        ),
       ),
     );
   }

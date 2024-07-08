@@ -4,6 +4,7 @@ import 'package:age_estimator/widgets/name_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:age_estimator/widgets/shared/separator.dart';
 import 'package:age_estimator/widgets/shared/styled_text.dart';
+import 'package:uuid/uuid.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,12 +18,20 @@ class _HomeState extends State<Home> {
   String result = '';
   String errorMessage = '';
   Person? currentResult;
+  List<Person> mockPeople;
 
-  List<Person> mockPeople = [
-    Person(name: "Alice", age: 25),
-    Person(name: "Bob", age: 30),
-    Person(name: "Charlie", age: 22),
-  ];
+  _HomeState()
+      : mockPeople = [
+          Person(name: "Alice", age: 25, id: const Uuid().v4()),
+          Person(name: "Bob", age: 30, id: const Uuid().v4()),
+          Person(name: "Charlie", age: 22, id: const Uuid().v4()),
+        ];
+
+  void removePerson(Person person) {
+    setState(() {
+      mockPeople.removeWhere((p) => p.id == person.id);
+    });
+  }
 
   @override
   void initState() {
@@ -64,12 +73,14 @@ class _HomeState extends State<Home> {
                   '${currentResult!.name} is ${currentResult!.age} years old'),
             ],
             const Separator(SizeOption.medium),
-            Container(
-                alignment: Alignment.centerLeft,
-                child: const StyledSmallText("Previous Names:")),
-            const Separator(SizeOption.small),
+            if (mockPeople.isNotEmpty) ...[
+              Container(
+                  alignment: Alignment.centerLeft,
+                  child: const StyledSmallText("Previous Names:")),
+              const Separator(SizeOption.small),
+            ],
             Expanded(
-              child: NameAgeList(people: mockPeople),
+              child: NameAgeList(people: mockPeople, onRemove: removePerson),
             ),
           ],
         ),
@@ -94,7 +105,8 @@ class _HomeState extends State<Home> {
       }
 
       int estimatedAge = 14;
-      currentResult = Person(name: nameController.text, age: estimatedAge);
+      currentResult = Person(
+          name: nameController.text, age: estimatedAge, id: const Uuid().v4());
       nameController.clear();
     });
   }
