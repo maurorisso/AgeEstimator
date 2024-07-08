@@ -17,6 +17,8 @@ class NameAgeItem extends StatelessWidget {
     Icons.person_4,
   ];
 
+  
+
   static IconData getRandomIcon() {
     return _icons[_random.nextInt(_icons.length)];
   }
@@ -40,16 +42,20 @@ class NameAgeItem extends StatelessWidget {
           ],
           borderRadius: BorderRadius.circular(8),
         ),
-        child: ListTile(
-          leading: Icon(
-            getRandomIcon(),
-            color: AppColors.primaryColor,
-          ),
-          title: Text(person.name, style: const TextStyle(color: Colors.black)),
-          subtitle: Text('Estimated Age: ${person.age}',
-              style: const TextStyle(color: Colors.black54)),
-        ),
+        child: _itemTile(),
       ),
+    );
+  }
+
+  ListTile _itemTile() {
+    return ListTile(
+      leading: Icon(
+        getRandomIcon(),
+        color: AppColors.primaryColor,
+      ),
+      title: Text(person.name, style: const TextStyle(color: Colors.black)),
+      subtitle: Text('Estimated Age: ${person.age}',
+          style: const TextStyle(color: Colors.black54)),
     );
   }
 }

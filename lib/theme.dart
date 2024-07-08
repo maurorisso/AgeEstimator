@@ -4,8 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 class AppColors {
   static Color primaryColor = const Color.fromRGBO(73, 91, 253, 1);
   static Color background = const Color(0xFFF7F4F3);
-  static Color succes = const Color.fromRGBO(9, 149, 110, 1);
-  static Color error = const Color.fromRGBO(255, 59, 48, 1);
 }
 
 ThemeData appTheme = ThemeData(
@@ -17,13 +15,6 @@ ThemeData appTheme = ThemeData(
 
     // Scaffold Background
     scaffoldBackgroundColor: AppColors.background,
-
-    //FilledButton
-    filledButtonTheme: FilledButtonThemeData(
-        style: ButtonStyle(
-            shape: WidgetStateProperty.all(RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10),
-    )))),
 
     // AppBar
     appBarTheme: AppBarTheme(

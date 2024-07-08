@@ -7,6 +7,6 @@ void main() {
 
   runApp(MaterialApp(
     theme: appTheme,
-    home: const Home(),
+    home: Home(),
   ));
 }
