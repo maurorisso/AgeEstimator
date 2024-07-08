@@ -18,7 +18,8 @@ Age Estimator is a Flutter application that estimates a person's age based on th
 
 | Deleting an item by swiping left | Error snackbar when trying to search for a number | |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| ![simulator_screenshot_89CF06BB-2830-4321-A09B-F094B0F25306](https://github.com/y0mauro/AgeEstimator/assets/73178418/40c33058-8d3c-49ed-8bba-71f09ce40716) | ![simulator_screenshot_69F6332D-EE5C-4ACD-A744-0DE45145159C](https://github.com/y0mauro/AgeEstimator/assets/73178418/f8138606-8738-4fa6-a177-f861f90daec8) |  |
+| ![simulator_screenshot_89CF06BB-2830-4321-A09B-F094B0F25306](https://github.com/y0mauro/AgeEstimator/assets/73178418/40c33058-8d3c-49ed-8bba-71f09ce40716) | ![simulator_screenshot_69F6332D-EE5C-4ACD-A744-0DE45145159C](https://github.com/y0mauro/AgeEstimator/assets/73178418/f8138606-8738-4fa6-a177-f861f90daec8) |  |  ------
+
 
 
 
