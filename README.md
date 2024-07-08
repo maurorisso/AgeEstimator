@@ -1,6 +1,6 @@
 # Age Estimator
 
-Age Estimator is a Flutter application that estimates the age of a person based on their name using the [Agify API](https://agify.io/). The application uses BLoC (Business Logic Component) state management to handle the state. The app also includes basic unit testing and error handling.
+Age Estimator is a Flutter application that estimates a person's age based on their name using the [Agify API](https://agify.io/). The application uses BLoC (Business Logic Component) state management to handle the state. The app also includes basic unit testing and error handling.
 
 ## Features
 
